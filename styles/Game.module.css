@@ -1,0 +1,48 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.battleContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: url("/assets/img/battle-background.jpg");
+  background-size: cover;
+}
+.battleContainer img {
+  position: absolute;
+  width: 120px;
+}
+.userSprite {
+  bottom: 25%;
+  left: 25%;
+}
+.enemySprite {
+  top: 25%;
+  right: 25%;
+}
+.menuContainer {
+  display: flex;
+  font-family: "PokemonPixel", "PT Sans Narrow";
+  font-size: 3em;
+}
+.bottomMenu {
+  color: white;
+  overflow-y: scroll;
+  width: 55%;
+  padding: 20px 30px;
+  height: 150px;
+  background: #285068;
+  border: solid 6px #ceb46d;
+}
+
+@media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 1200px) {
+}
