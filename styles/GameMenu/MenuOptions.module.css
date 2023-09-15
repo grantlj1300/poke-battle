@@ -3,15 +3,39 @@
   align-items: center;
   justify-content: space-evenly;
   width: 45%;
-  height: 150px;
   background: #f8f8f8;
-  border: solid 6px #6f677f;
+  border: solid 4px #6f677f;
+  text-shadow: 1px 1px 3px rgb(131, 131, 131);
 }
 .col {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
-.button {
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hidden {
+  visibility: hidden;
+}
+.arrow {
+  font-size: 0.4em;
+  transform: scaleY(1.5);
+  cursor: default;
+}
+.text {
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    border: solid 5px #6f677f;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    border: solid 6px #6f677f;
+  }
 }

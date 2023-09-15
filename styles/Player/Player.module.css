@@ -1,0 +1,63 @@
+.container img {
+  position: absolute;
+  width: 120px;
+}
+.userSprite {
+  bottom: 20%;
+  left: 15%;
+}
+.enemySprite {
+  top: 25%;
+  right: 15%;
+}
+
+@media screen and (min-width: 480px) {
+  .container img {
+    width: 120px;
+  }
+  .userSprite {
+    bottom: 15%;
+    left: 20%;
+  }
+  .enemySprite {
+    top: 20%;
+    right: 20%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container img {
+    width: 100px;
+  }
+  .userSprite {
+    bottom: 15%;
+    left: 25%;
+  }
+  .enemySprite {
+    top: 20%;
+    right: 25%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container img {
+    width: 120px;
+  }
+  .userSprite {
+    bottom: 15%;
+  }
+  .enemySprite {
+    top: 20%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container img {
+    width: 140px;
+  }
+  .userSprite {
+    bottom: 20%;
+    left: 25%;
+  }
+  .enemySprite {
+    top: 20%;
+    right: 25%;
+  }
+}
