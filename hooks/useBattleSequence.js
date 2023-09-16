@@ -40,7 +40,7 @@ export function useBattleSequence(sequence, player, opponent) {
 
   useEffect(() => {
     const { mode, turn } = sequence;
-    if (mode) {
+    if (mode && !inSequence) {
       const attacker = turn === 0 ? player : opponent;
       const receiver = turn === 0 ? opponent : player;
       const { type, move } = mode;
