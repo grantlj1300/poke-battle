@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@styles/*": ["styles/*"],
+      "@components/*": ["components/*"],
+      "@shared/*": ["shared/*"],
+      "@hooks/*": ["hooks/*"]
+    }
+  },
+  "include": ["./**/*"]
+}

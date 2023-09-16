@@ -1,10 +1,11 @@
-import styles from "../../styles/GameMenu/GameMenu.module.css";
+import styles from "@styles/GameMenu/GameMenu.module.css";
 import MenuOptions from "./MenuOptions";
+import TextAnnouncer from "./TextAnnouncer";
 
 export default function GameMenu() {
   return (
     <div className={styles.container}>
-      <div className={styles.bottomMenu}>What will Charmander do?</div>
+      <TextAnnouncer message={`What will Charmander do?`} />
       <MenuOptions />
     </div>
   );

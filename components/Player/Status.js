@@ -1,4 +1,4 @@
-import styles from "../../styles/Player/Status.module.css";
+import styles from "@styles/Player/Status.module.css";
 
 export default function Status({ user = false, pokemon }) {
   const { hp, name, level } = pokemon;

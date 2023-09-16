@@ -1,4 +1,4 @@
-import styles from "../../styles/Player/Player.module.css";
+import styles from "@styles/Player/Player.module.css";
 import Status from "./Status";
 
 export default function Opponent({ pokemon }) {

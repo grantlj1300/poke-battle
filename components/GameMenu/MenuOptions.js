@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../styles/GameMenu/MenuOptions.module.css";
+import styles from "@styles/GameMenu/MenuOptions.module.css";
 
 export default function MenuOptions() {
   const [selectedOption, setSelectedOption] = useState("fight");

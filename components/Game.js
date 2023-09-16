@@ -1,29 +1,12 @@
-import styles from "../styles/Game.module.css";
+import styles from "@styles/Game.module.css";
 import GameMenu from "./GameMenu/GameMenu";
 import Opponent from "./Player/Opponent";
 import User from "./Player/User";
+import pokemon from "@shared/pokemon.json";
 
 export default function Game() {
-  const userPokemon = {
-    name: "Charmander",
-    level: 5,
-    image:
-      "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif",
-    hp: {
-      current: 50,
-      max: 100,
-    },
-  };
-  const opponentPokemon = {
-    name: "Squirtle",
-    level: 4,
-    image:
-      "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif",
-    hp: {
-      current: 25,
-      max: 100,
-    },
-  };
+  const userPokemon = pokemon.charmander;
+  const opponentPokemon = pokemon.squirtle;
   return (
     <div className={styles.container}>
       <div className={styles.battleContainer}>
