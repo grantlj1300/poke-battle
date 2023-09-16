@@ -1,16 +1,14 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
   align-items: center;
   justify-content: space-evenly;
-  min-width: 45%;
+  height: 100%;
+  width: 100%;
   background: #f8f8f8;
   border: solid 4px #6f677f;
   text-shadow: 1px 1px 3px rgb(131, 131, 131);
-}
-.col {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 .option {
   display: flex;
@@ -32,10 +30,12 @@
 @media screen and (min-width: 768px) {
   .container {
     border: solid 5px #6f677f;
+    padding: 10px 20px;
   }
 }
 @media screen and (min-width: 1024px) {
   .container {
     border: solid 6px #6f677f;
+    padding: 10px 25px;
   }
 }

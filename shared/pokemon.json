@@ -3,12 +3,20 @@
     "name": "Charmander",
     "level": 5,
     "image": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif",
-    "maxHP": 100
+    "maxHP": 100,
+    "moves": [
+      { "name": "Scratch", "type": "normal", "pp": 35 },
+      { "name": "Ember", "type": "fire", "pp": 25 }
+    ]
   },
   "squirtle": {
     "name": "Squirtle",
     "level": 4,
     "image": "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif",
-    "maxHP": 100
+    "maxHP": 100,
+    "moves": [
+      { "name": "Tackle", "type": "normal", "pp": 35 },
+      { "name": "Water Gun", "type": "water", "pp": 25 }
+    ]
   }
 }

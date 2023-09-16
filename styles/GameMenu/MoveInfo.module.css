@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 10px;
+  background: #f8f8f8;
+  border: solid 4px #6f677f;
+  text-shadow: 1px 1px 3px rgb(131, 131, 131);
+}
+.ppRow {
+  display: flex;
+  justify-content: space-between;
+}

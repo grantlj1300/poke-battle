@@ -15,12 +15,14 @@ export default function Game() {
     turn,
     inSequence,
     playerHealth,
+    playerMoves,
     playerAnimation,
     opponentHealth,
+    opponentMoves,
     opponentAnimation,
     announcerMessage,
   } = useBattleSequence(sequence, userPokemon, opponentPokemon);
-  const aiChoice = useAIOpponent(turn);
+  const aiChoice = useAIOpponent(turn, opponentMoves);
 
   useEffect(() => {
     if (aiChoice && turn === 1 && !inSequence) {
@@ -45,6 +47,7 @@ export default function Game() {
       <GameMenu
         turn={turn}
         displayOptions={turn === 0 && !inSequence}
+        moves={playerMoves}
         message={announcerMessage || `What will ${userPokemon.name} do?`}
         setSequence={setSequence}
       />
