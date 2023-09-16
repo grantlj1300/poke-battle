@@ -40,6 +40,7 @@ export function useBattleSequence(sequence, player, opponent) {
 
   useEffect(() => {
     const { mode, turn } = sequence;
+    // Possible race condition, AI moves twice, shouldnt have to check for inSequence
     if (mode && !inSequence) {
       const attacker = turn === 0 ? player : opponent;
       const receiver = turn === 0 ? opponent : player;

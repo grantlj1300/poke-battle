@@ -12,12 +12,14 @@ export default function GameMenu({
   setSequence,
 }) {
   const [selectedOption, setSelectedOption] = useState("");
+  const [previewedOption, setPreviewedOption] = useState("");
   const mainMenuOptions = [
     { name: "fight" },
     { name: "bag" },
     { name: "pokemon" },
     { name: "run" },
   ];
+
   if (selectedOption === "fight") {
     return (
       <div className={styles.container}>
@@ -28,9 +30,11 @@ export default function GameMenu({
               setSelectedOption("");
               setSequence({ turn, mode: { type: "fight", move } });
             }}
+            onBack={() => setSelectedOption("")}
+            onHover={(move) => setPreviewedOption(move)}
           />
         </div>
-        <MoveInfo />
+        <MoveInfo move={previewedOption} />
       </div>
     );
   } else if (selectedOption === "bag") {
