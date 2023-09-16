@@ -3,18 +3,12 @@
     "name": "Charmander",
     "level": 5,
     "image": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif",
-    "hp": {
-      "current": 50,
-      "max": 100
-    }
+    "maxHP": 100
   },
   "squirtle": {
     "name": "Squirtle",
     "level": 4,
     "image": "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif",
-    "hp": {
-      "current": 25,
-      "max": 100
-    }
+    "maxHP": 100
   }
 }

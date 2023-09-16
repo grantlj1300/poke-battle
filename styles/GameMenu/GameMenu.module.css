@@ -3,16 +3,6 @@
   height: 120px;
   font-size: 1.5em;
 }
-.bottomMenu {
-  color: white;
-  overflow-y: scroll;
-  width: 55%;
-  padding: 10px 15px;
-  height: 100%;
-  background: #285068;
-  border: solid 4px #ceb46d;
-  text-shadow: 1px 1px 3px rgb(119, 119, 119);
-}
 
 @media screen and (min-width: 480px) {
   .container {
@@ -23,18 +13,10 @@
   .container {
     height: 30%;
   }
-  .bottomMenu {
-    padding: 15px 20px;
-    border: solid 5px #ceb46d;
-  }
 }
 @media screen and (min-width: 1024px) {
   .container {
     font-size: 2.5em;
-  }
-  .bottomMenu {
-    padding: 20px 30px;
-    border: solid 6px #ceb46d;
   }
 }
 @media screen and (min-width: 1200px) {

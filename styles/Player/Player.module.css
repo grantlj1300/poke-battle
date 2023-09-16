@@ -10,6 +10,34 @@
   top: 25%;
   right: 15%;
 }
+.static > img {
+  transform: translateX(0px);
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+.fight > .userSprite {
+  transition: 0.1s;
+  transform: translateX(50px) translateY(-50px);
+}
+.fight > .enemySprite {
+  transition: 0.1s;
+  transform: translateX(-50px) translateY(50px);
+}
+.damage > img {
+  opacity: 1;
+  animation: flash 0.3s 0.3s infinite;
+}
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 @media screen and (min-width: 480px) {
   .container img {

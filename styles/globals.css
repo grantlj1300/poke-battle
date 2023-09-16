@@ -16,6 +16,8 @@ body {
   font-family: "PokemonPixel", "PT Sans Narrow", Inter, -apple-system,
     BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
     Droid Sans, Helvetica Neue, sans-serif;
+  background-image: url("/assets/img/site-background.png");
+  background-size: cover;
 }
 
 a {

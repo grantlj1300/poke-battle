@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "@styles/GameMenu/MenuOptions.module.css";
 
-export default function MenuOptions() {
+export default function MenuOptions({ turn, setSequence }) {
   const [selectedOption, setSelectedOption] = useState("fight");
 
   function handleKeyDown(e) {
@@ -23,6 +23,7 @@ export default function MenuOptions() {
         else if (selectedOption === "run") setSelectedOption("pokemon");
         break;
       case "Enter":
+        setSequence({ turn, mode: selectedOption });
         break;
       default:
         break;
@@ -50,7 +51,10 @@ export default function MenuOptions() {
           </div>
           <div
             className={styles.text}
-            onClick={() => setSelectedOption("fight")}
+            onClick={() => {
+              setSelectedOption("fight");
+              setSequence({ turn, mode: "fight" });
+            }}
           >
             Fight
           </div>
@@ -65,7 +69,10 @@ export default function MenuOptions() {
           </div>
           <div
             className={styles.text}
-            onClick={() => setSelectedOption("pokemon")}
+            onClick={() => {
+              setSelectedOption("pokemon");
+              setSequence({ turn, mode: "pokemon" });
+            }}
           >
             Pokemon
           </div>
@@ -80,7 +87,13 @@ export default function MenuOptions() {
           >
             &#9658;
           </div>
-          <div className={styles.text} onClick={() => setSelectedOption("bag")}>
+          <div
+            className={styles.text}
+            onClick={() => {
+              setSelectedOption("bag");
+              setSequence({ turn, mode: "bag" });
+            }}
+          >
             Bag
           </div>
         </div>
@@ -92,7 +105,13 @@ export default function MenuOptions() {
           >
             &#9658;
           </div>
-          <div className={styles.text} onClick={() => setSelectedOption("run")}>
+          <div
+            className={styles.text}
+            onClick={() => {
+              setSelectedOption("run");
+              setSequence({ turn, mode: "run" });
+            }}
+          >
             Run
           </div>
         </div>

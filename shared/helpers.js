@@ -5,3 +5,9 @@ export function wait(ms) {
     }, ms);
   });
 }
+
+export function attack({ attacker, receiver }) {
+  const receivedDamage = Math.floor(Math.random() * 10) + 1;
+
+  return receivedDamage;
+}

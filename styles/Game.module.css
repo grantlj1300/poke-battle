@@ -16,6 +16,8 @@
   .container {
     width: 720px;
     height: 480px;
+    border: 5px solid black;
+    border-radius: 5px;
   }
 }
 @media screen and (min-width: 1024px) {
