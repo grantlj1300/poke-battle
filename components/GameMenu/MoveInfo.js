@@ -6,7 +6,7 @@ export default function MoveInfo({ move }) {
       <div className={styles.ppRow}>
         <div>PP</div>
         <div>
-          {move.pp}/{move.pp}
+          {move.pp.current ?? move.pp.max}/{move.pp.max}
         </div>
       </div>
       <div className={styles.typeRow}>TYPE/{move.type?.toUpperCase()}</div>

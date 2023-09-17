@@ -9,8 +9,9 @@ export default function QuadSelector({
 }) {
   const [hoveredOption, setHoveredOption] = useState(0);
   useEffect(() => {
+    setHoveredOption(0);
     onHover(options[0]);
-  }, []);
+  }, [options]);
 
   function handleKeyDown(e) {
     let idx = hoveredOption;

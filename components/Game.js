@@ -7,7 +7,7 @@ import { useBattleSequence } from "@hooks/useBattleSequence";
 import { useEffect, useState } from "react";
 import { useAIOpponent } from "@hooks/useAIOpponent";
 
-export default function Game() {
+export default function Game({ onGameEnd }) {
   const userPokemon = pokemon.charmander;
   const opponentPokemon = pokemon.squirtle;
   const [sequence, setSequence] = useState({});
@@ -50,6 +50,7 @@ export default function Game() {
         moves={playerMoves}
         message={announcerMessage || `What will ${userPokemon.name} do?`}
         setSequence={setSequence}
+        onGameEnd={onGameEnd}
       />
     </div>
   );

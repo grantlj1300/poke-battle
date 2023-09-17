@@ -10,15 +10,17 @@ export default function GameMenu({
   moves,
   turn,
   setSequence,
+  onGameEnd,
 }) {
   const [selectedOption, setSelectedOption] = useState("");
-  const [previewedOption, setPreviewedOption] = useState("");
+  const [previewedOption, setPreviewedOption] = useState(moves[0]);
   const mainMenuOptions = [
     { name: "fight" },
     { name: "bag" },
     { name: "pokemon" },
     { name: "run" },
   ];
+  const confirmationOptions = [{ name: "yes" }, { name: "no" }];
 
   if (selectedOption === "fight") {
     return (
@@ -42,7 +44,22 @@ export default function GameMenu({
   } else if (selectedOption === "pokemon") {
     return <></>;
   } else if (selectedOption === "run") {
-    return <></>;
+    return (
+      <div className={styles.container}>
+        <div style={{ minWidth: "60%", width: "100%" }}>
+          <TextAnnouncer message={"Are you sure you want to quit?"} />
+        </div>
+        {displayOptions && (
+          <QuadSelector
+            options={confirmationOptions}
+            onSelect={(menuOption) =>
+              menuOption.name === "yes" ? onGameEnd() : setSelectedOption("")
+            }
+            onBack={() => setSelectedOption("")}
+          />
+        )}
+      </div>
+    );
   } else
     return (
       <div className={styles.container}>

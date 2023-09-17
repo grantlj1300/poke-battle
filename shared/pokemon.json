@@ -1,22 +1,28 @@
 {
   "charmander": {
     "name": "Charmander",
+    "type": "fire",
     "level": 5,
     "image": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif",
-    "maxHP": 100,
+    "maxHP": 41,
+    "attack": 54,
+    "defense": 46,
     "moves": [
-      { "name": "Scratch", "type": "normal", "pp": 35 },
-      { "name": "Ember", "type": "fire", "pp": 25 }
+      { "name": "Scratch", "type": "normal", "pp": { "max": 35 }, "power": 40 },
+      { "name": "Ember", "type": "fire", "pp": { "max": 25 }, "power": 40 }
     ]
   },
   "squirtle": {
     "name": "Squirtle",
+    "type": "water",
     "level": 4,
     "image": "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif",
-    "maxHP": 100,
+    "maxHP": 43,
+    "attack": 48,
+    "defense": 66,
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": 35 },
-      { "name": "Water Gun", "type": "water", "pp": 25 }
+      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
+      { "name": "Water Gun", "type": "water", "pp": { "max": 25 }, "power": 40 }
     ]
   }
 }
