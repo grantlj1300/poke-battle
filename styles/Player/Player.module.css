@@ -1,14 +1,21 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  max-width: 550px;
+}
 .container img {
   position: absolute;
   width: 120px;
+  z-index: -2;
 }
 .userSprite {
-  bottom: 20%;
-  left: 15%;
+  bottom: 15%;
+  left: 5%;
 }
 .enemySprite {
-  top: 25%;
-  right: 15%;
+  bottom: 0%;
+  right: 5%;
 }
 .static > img {
   transform: translateX(0px);
@@ -40,19 +47,18 @@
 }
 
 @media screen and (min-width: 480px) {
-  .container img {
-    width: 120px;
-  }
   .userSprite {
-    bottom: 15%;
-    left: 20%;
+    bottom: 25%;
+    left: 10%;
   }
   .enemySprite {
-    top: 20%;
-    right: 20%;
+    right: 10%;
   }
 }
 @media screen and (min-width: 768px) {
+  .container {
+    max-width: none;
+  }
   .container img {
     width: 100px;
   }
@@ -61,7 +67,6 @@
     left: 25%;
   }
   .enemySprite {
-    top: 20%;
     right: 25%;
   }
 }

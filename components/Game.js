@@ -33,15 +33,15 @@ export default function Game() {
   return (
     <div className={styles.container}>
       <div className={styles.battleContainer}>
-        <User
-          pokemon={userPokemon}
-          animation={playerAnimation}
-          health={playerHealth}
-        />
         <Opponent
           pokemon={opponentPokemon}
           animation={opponentAnimation}
           health={opponentHealth}
+        />
+        <User
+          pokemon={userPokemon}
+          animation={playerAnimation}
+          health={playerHealth}
         />
       </div>
       <GameMenu

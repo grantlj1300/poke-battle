@@ -1,28 +1,50 @@
 .container {
   width: 200px;
+  height: fit-content;
   position: absolute;
   padding: 10px 15px;
   background-color: white;
-  border: 1px solid black;
-  border-radius: 20px;
-  top: 20%;
+  border: 4px solid rgb(52, 52, 52);
+  border-radius: 15px;
+  bottom: 40%;
   left: 5%;
-  box-shadow: 2px 2px 5px;
+  box-shadow: 5px 10px 0px;
   font-size: 1.5em;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
+.container:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid black;
+  border-right: 15px solid transparent;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid black;
+  right: -25px;
+  bottom: -14px;
+  z-index: -1;
+}
+
 .user {
-  top: auto;
   left: auto;
-  bottom: 30%;
+  bottom: 50%;
   right: 5%;
-  box-shadow: -2px 2px 5px;
+  box-shadow: -5px 10px 0px;
+}
+.user:before {
+  border-left: 15px solid transparent;
+  border-right: 15px solid black;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid black;
+  left: -25px;
 }
 
 .top {
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
@@ -59,29 +81,26 @@
 
 @media screen and (min-width: 480px) {
   .container {
-    top: 20%;
-    left: 15%;
+    left: 10%;
+    bottom: 30%;
     font-size: 1.5em;
   }
   .user {
-    top: auto;
+    bottom: 50%;
     left: auto;
-    bottom: 30%;
-    right: 15%;
+    right: 10%;
   }
 }
 @media screen and (min-width: 768px) {
   .container {
     width: 175px;
-    top: 15%;
+    bottom: 40%;
     left: 25%;
     font-size: 1.25em;
   }
   .user {
-    top: auto;
     left: auto;
     right: 25%;
-    bottom: 20%;
   }
 }
 @media screen and (min-width: 1024px) {
