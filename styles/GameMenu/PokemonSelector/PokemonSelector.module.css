@@ -1,0 +1,27 @@
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  visibility: hidden;
+  z-index: 1;
+  animation: cutIn 0s ease-in 0.5s forwards;
+}
+@keyframes cutIn {
+  to {
+    visibility: visible;
+  }
+}
+.options {
+  display: flex;
+}
+.secondaryOptions {
+  width: 60%;
+}
+.bottom {
+  display: flex;
+  align-items: center;
+}

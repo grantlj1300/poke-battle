@@ -3,6 +3,7 @@ import QuadSelector from "./QuadSelector";
 import TextAnnouncer from "./TextAnnouncer";
 import { useState } from "react";
 import MoveInfo from "./MoveInfo";
+import PokemonSelector from "./PokemonSelector/PokemonSelector";
 
 export default function GameMenu({
   displayOptions,
@@ -11,6 +12,7 @@ export default function GameMenu({
   turn,
   setSequence,
   onGameEnd,
+  pokemon,
 }) {
   const [selectedOption, setSelectedOption] = useState("");
   const [previewedOption, setPreviewedOption] = useState(moves[0]);
@@ -22,17 +24,21 @@ export default function GameMenu({
   ];
   const confirmationOptions = [{ name: "yes" }, { name: "no" }];
 
+  function toMainMenu() {
+    setSelectedOption("");
+  }
+
   if (selectedOption === "fight") {
     return (
       <div className={styles.container}>
-        <div style={{ minWidth: "70%" }}>
+        <div style={{ minWidth: "70%", position: "relative" }}>
           <QuadSelector
             options={moves}
             onSelect={(move) => {
               setSelectedOption("");
               setSequence({ turn, mode: { type: "fight", move } });
             }}
-            onBack={() => setSelectedOption("")}
+            onBack={toMainMenu}
             onHover={(move) => setPreviewedOption(move)}
           />
         </div>
@@ -40,8 +46,6 @@ export default function GameMenu({
       </div>
     );
   } else if (selectedOption === "bag") {
-    return <></>;
-  } else if (selectedOption === "pokemon") {
     return <></>;
   } else if (selectedOption === "run") {
     return (
@@ -55,23 +59,31 @@ export default function GameMenu({
             onSelect={(menuOption) =>
               menuOption.name === "yes" ? onGameEnd() : setSelectedOption("")
             }
-            onBack={() => setSelectedOption("")}
+            onBack={toMainMenu}
           />
         )}
       </div>
     );
   } else
     return (
-      <div className={styles.container}>
-        <div style={{ minWidth: "60%", width: "100%" }}>
-          <TextAnnouncer message={message} />
-        </div>
-        {displayOptions && (
-          <QuadSelector
-            options={mainMenuOptions}
-            onSelect={(menuOption) => setSelectedOption(menuOption.name)}
-          />
+      <>
+        {selectedOption === "pokemon" && (
+          <div className={styles.modalContainer}>
+            <div className={styles.shadowFade} />
+            <PokemonSelector pokemon={pokemon} toMainMenu={toMainMenu} />
+          </div>
         )}
-      </div>
+        <div className={styles.container}>
+          <div style={{ minWidth: "60%", width: "100%" }}>
+            <TextAnnouncer message={message} />
+          </div>
+          {displayOptions && selectedOption === "" && (
+            <QuadSelector
+              options={mainMenuOptions}
+              onSelect={(menuOption) => setSelectedOption(menuOption.name)}
+            />
+          )}
+        </div>
+      </>
     );
 }
