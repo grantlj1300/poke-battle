@@ -4,7 +4,8 @@
       "@styles/*": ["./styles/*"],
       "@components/*": ["./components/*"],
       "@shared/*": ["./shared/*"],
-      "@hooks/*": ["./hooks/*"]
+      "@hooks/*": ["./hooks/*"],
+      "@public/*": ["./public/*"]
     }
   }
 }

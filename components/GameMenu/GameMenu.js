@@ -28,6 +28,12 @@ export default function GameMenu({
     setSelectedOption("");
   }
 
+  function switchPokemon(move) {
+    setSelectedOption("");
+    setSequence({ turn, mode: { type: "pokemon", move } });
+    return;
+  }
+
   if (selectedOption === "fight") {
     return (
       <div className={styles.container}>
@@ -70,7 +76,11 @@ export default function GameMenu({
         {selectedOption === "pokemon" && (
           <div className={styles.modalContainer}>
             <div className={styles.shadowFade} />
-            <PokemonSelector pokemon={pokemon} toMainMenu={toMainMenu} />
+            <PokemonSelector
+              pokemon={pokemon}
+              toMainMenu={toMainMenu}
+              switchPokemon={switchPokemon}
+            />
           </div>
         )}
         <div className={styles.container}>

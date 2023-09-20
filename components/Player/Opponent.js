@@ -6,7 +6,7 @@ export default function Opponent({ pokemon, animation, health }) {
     <div className={`${styles.container} ${styles[animation]}`}>
       <img
         className={styles.enemySprite}
-        src={pokemon.image}
+        src={pokemon.sprites.front}
         alt={pokemon.name}
       />
       <Status pokemon={pokemon} health={health} />

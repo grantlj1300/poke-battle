@@ -1,10 +1,15 @@
 .container {
   color: white;
   background-color: rgb(162, 0, 162);
-  padding: 3px 14px;
   border: 3px solid rgb(104, 0, 104);
   box-shadow: 1px 2px 5px rgb(104, 0, 104);
   text-shadow: 1px 1px 3px rgb(131, 131, 131);
   border-radius: 20px;
   cursor: pointer;
+  height: 100%;
+  font-size: 1.5em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,5 +1,84 @@
 .container {
-  height: 50px;
-  width: 100%;
-  background-color: tan;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  background-color: rgb(111, 214, 238);
+  border: 3px solid rgb(0, 66, 84);
+  box-shadow: 2px 2px 3px rgb(0, 66, 84);
+  padding: 10px;
+  height: 20%;
+  border-radius: 30px 0px 0px 30px;
+  cursor: pointer;
+}
+.container:hover {
+  background-color: rgb(157, 237, 255);
+  border-color: rgb(255, 119, 0);
+}
+.selected {
+  background-color: rgb(157, 237, 255);
+  border-color: rgb(255, 119, 0);
+}
+.empty {
+  background-color: transparent;
+  cursor: default;
+}
+.empty:hover {
+  background-color: transparent;
+  border-color: rgb(0, 66, 84);
+}
+.main {
+  gap: 5px;
+  border-radius: 0px;
+  height: 190px;
+}
+.sprite {
+  width: 70px;
+  left: 10px;
+}
+.main > .sprite {
+  top: 5px;
+  left: 0px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+.health {
+  height: fit-content;
+  width: 50%;
+  font-size: 1.25em;
+}
+.main > .health {
+  width: 80%;
+}
+
+@media screen and (min-width: 480px) {
+}
+@media screen and (min-width: 768px) {
+  .main {
+    height: 40%;
+  }
+  .sprite {
+    position: absolute;
+    width: 50px;
+  }
+  .main > .sprite {
+    top: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sprite {
+    width: 60px;
+  }
+  .main > .sprite {
+    top: 5px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .sprite {
+    width: 75px;
+  }
 }

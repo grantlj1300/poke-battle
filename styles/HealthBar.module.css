@@ -1,0 +1,39 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.health {
+  display: flex;
+  position: relative;
+  width: fit-content;
+  align-items: center;
+  align-self: flex-end;
+  width: inherit;
+  height: inherit;
+  gap: 5px;
+  font-size: 0.5em;
+  padding: 1px 4px 1px 7px;
+  border-radius: 20px;
+  background-color: rgb(86, 86, 86);
+  color: rgb(242, 192, 64);
+}
+.maxHealth {
+  display: flex;
+  background-color: rgb(52, 52, 52);
+  border-radius: 1em;
+  overflow: hidden;
+  width: 100%;
+  height: 0.5em;
+  border: 1px solid white;
+}
+.currentHealth {
+  transition: 0.35s;
+}
+.hpValue {
+  align-self: flex-end;
+  font-size: 0.6em;
+  padding-right: 2px;
+}

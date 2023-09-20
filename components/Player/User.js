@@ -6,7 +6,7 @@ export default function User({ pokemon, animation, health }) {
     <div className={`${styles.container} ${styles[animation]}`}>
       <img
         className={styles.userSprite}
-        src={pokemon.image}
+        src={pokemon.sprites.back}
         alt={pokemon.name}
       />
       <Status user pokemon={pokemon} health={health} />

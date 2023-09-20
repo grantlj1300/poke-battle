@@ -4,7 +4,7 @@ import styles from "@styles/Home.module.css";
 import { useState } from "react";
 
 export default function Home() {
-  const [mode, setMode] = useState("start");
+  const [mode, setMode] = useState("battle");
 
   return (
     <div className={styles.container}>
