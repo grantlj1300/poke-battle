@@ -74,7 +74,8 @@ export default function GameMenu({
   } else
     return (
       <>
-        {(selectedOption === "pokemon" || gameStatus === "fainted") && (
+        {(selectedOption === "pokemon" ||
+          (gameStatus === "fainted" && turn === 0)) && (
           <div className={styles.modalContainer}>
             <div className={styles.shadowFade} />
             <PokemonSelector

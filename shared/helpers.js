@@ -8,6 +8,27 @@ export function wait(ms) {
   });
 }
 
+/**
+ * Function for handling AI opponent actions.
+ *
+ * @param {number} turn - The current turn. Use 1 for AI Opponent and 0 for the User
+ * @param {number} opponentPokemon - The opponent's pokemon roster
+ * @param {number} gameStatus - The status of the game such as "fainted"
+ */
+export function AIOpponentMove(turn, opponentPokemon, gameStatus) {
+  if (turn === 1) {
+    if (gameStatus === "fainted") {
+      return { type: "pokemon", swapIdx: 1 };
+    } else {
+      const options = opponentPokemon[0].moves;
+      return {
+        type: "fight",
+        move: options[Math.floor(Math.random() * options.length)],
+      };
+    }
+  }
+}
+
 // Using Gen 1 attack calculation
 // Gen 2 Critical hit probability
 // Gen 1 random multiplier

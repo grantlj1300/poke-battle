@@ -5,7 +5,7 @@ import User from "./Player/User";
 import pokemon from "@shared/pokemon.json";
 import { useBattleSequence } from "@hooks/useBattleSequence";
 import { useEffect, useState } from "react";
-import { useAIOpponent } from "@hooks/useAIOpponent";
+import { AIOpponentMove } from "@shared/helpers";
 
 export default function Game({ onGameEnd }) {
   const playerPokemonBase = [pokemon.charmander, pokemon.squirtle].map(
@@ -27,13 +27,15 @@ export default function Game({ onGameEnd }) {
     opponentAnimation,
     announcerMessage,
   } = useBattleSequence(sequence, playerPokemonBase, opponentPokemonBase);
-  const aiChoice = useAIOpponent(turn, opponentPokemon, gameStatus);
 
   useEffect(() => {
-    if (aiChoice && turn === 1 && !inSequence) {
-      setSequence({ turn, mode: aiChoice });
+    if (turn === 1 && !inSequence) {
+      setSequence({
+        turn,
+        mode: AIOpponentMove(turn, opponentPokemon, gameStatus),
+      });
     }
-  }, [turn, aiChoice, inSequence]);
+  }, [turn, inSequence]);
 
   return (
     <div className={styles.container}>
