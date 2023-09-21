@@ -19,6 +19,12 @@
   background-color: rgb(157, 237, 255);
   border-color: rgb(255, 119, 0);
 }
+.fainted {
+  background-color: rgb(222, 89, 0);
+}
+.fainted:hover {
+  background-color: rgb(255, 194, 154);
+}
 .empty {
   background-color: transparent;
   cursor: default;

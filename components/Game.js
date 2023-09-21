@@ -8,10 +8,17 @@ import { useEffect, useState } from "react";
 import { useAIOpponent } from "@hooks/useAIOpponent";
 
 export default function Game({ onGameEnd }) {
-  const playerPokemonBase = [pokemon.charmander, pokemon.squirtle];
-  const opponentPokemonBase = [pokemon.squirtle];
+  const playerPokemonBase = [pokemon.charmander, pokemon.squirtle].map(
+    (pokemon) => ({ ...pokemon })
+  );
+  const opponentPokemonBase = [pokemon.squirtle, pokemon.charmander].map(
+    (pokemon) => ({
+      ...pokemon,
+    })
+  );
   const [sequence, setSequence] = useState({});
   const {
+    gameStatus,
     turn,
     inSequence,
     playerPokemon,
@@ -20,7 +27,7 @@ export default function Game({ onGameEnd }) {
     opponentAnimation,
     announcerMessage,
   } = useBattleSequence(sequence, playerPokemonBase, opponentPokemonBase);
-  const aiChoice = useAIOpponent(turn, opponentPokemon[0].moves);
+  const aiChoice = useAIOpponent(turn, opponentPokemon, gameStatus);
 
   useEffect(() => {
     if (aiChoice && turn === 1 && !inSequence) {
@@ -45,7 +52,8 @@ export default function Game({ onGameEnd }) {
       <GameMenu
         turn={turn}
         setSequence={setSequence}
-        displayOptions={turn === 0 && !inSequence}
+        gameStatus={gameStatus}
+        displayOptions={turn === 0 && !inSequence && gameStatus === "playing"}
         moves={playerPokemon[0].moves}
         message={announcerMessage || `What will ${playerPokemon[0].name} do?`}
         pokemon={playerPokemon}

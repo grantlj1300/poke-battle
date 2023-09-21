@@ -20,24 +20,27 @@ export function useBattleSequence(sequence, player, opponent) {
   function setHealth(target, damage) {
     const updateHealth = (prevHealth) =>
       prevHealth - damage > 0 ? prevHealth - damage : 0;
-
+    let newHealth;
     if (target === turn) {
+      newHealth = updateHealth(
+        playerPokemon[0].health ?? playerPokemon[0].maxHP
+      );
       setPlayerPokemon((prevPokemon) => {
         const updatedPokemon = [...prevPokemon];
-        updatedPokemon[0].health = updateHealth(
-          updatedPokemon[0].health ?? updatedPokemon[0].maxHP
-        );
+        updatedPokemon[0].health = newHealth;
         return updatedPokemon;
       });
     } else {
+      newHealth = updateHealth(
+        opponentPokemon[0].health ?? opponentPokemon[0].maxHP
+      );
       setOpponentPokemon((prevPokemon) => {
         const updatedPokemon = [...prevPokemon];
-        updatedPokemon[0].health = updateHealth(
-          updatedPokemon[0].health ?? updatedPokemon[0].maxHP
-        );
+        updatedPokemon[0].health = newHealth;
         return updatedPokemon;
       });
     }
+    return newHealth;
   }
 
   function setMoves(target, move) {
@@ -94,12 +97,13 @@ export function useBattleSequence(sequence, player, opponent) {
   useEffect(() => {
     const { mode, turn } = sequence;
     // Possible race condition, AI moves twice, shouldnt have to check for inSequence
-    if (mode && !inSequence) {
+    if (mode) {
       const attacker = turn === 0 ? playerPokemon[0] : opponentPokemon[0];
       const receiver = turn === 0 ? opponentPokemon[0] : playerPokemon[0];
-      const { type, move } = mode;
+      const { type } = mode;
       switch (type) {
         case "fight":
+          const { move } = mode;
           const { damage, messages } = attack({ attacker, receiver, move });
           (async () => {
             setInSequence(true);
@@ -115,10 +119,21 @@ export function useBattleSequence(sequence, player, opponent) {
             setAnimation(1, "damage");
             await wait(750);
             setAnimation(1, "static");
-            setHealth(1, damage);
+            const newHealth = setHealth(1, damage);
             for (const message of messages) {
               setAnnouncerMessage(message);
               await wait(2000);
+            }
+            if (newHealth === 0) {
+              setAnimation(1, "sendBack");
+              setAnnouncerMessage(
+                `${(turn === 0 ? "Foe " : "") + receiver.name} fainted!`
+              );
+              await wait(2000);
+              setGameStatus("fainted");
+              setTurn(turn === 0 ? 1 : 0);
+              setInSequence(false);
+              return;
             }
             if (turn === 1) {
               setAnnouncerMessage("");
@@ -129,20 +144,39 @@ export function useBattleSequence(sequence, player, opponent) {
           })();
           break;
         case "pokemon":
+          const { swapIdx } = mode;
           (async () => {
             setInSequence(true);
-            setAnnouncerMessage(`Good work, ${attacker.name}! Come on back!`);
-            await wait(1000);
-            setAnimation(0, "sendBack");
-            await wait(1000);
-            setAnnouncerMessage(`Go get 'em, ${playerPokemon[move].name}!`);
-            setAnimation(0, "sendOut");
-            swapPokemon(0, move);
-            await wait(1000);
-            setAnimation(0, "static");
-            await wait(1000);
-            setAnnouncerMessage("");
-            setTurn(turn === 0 ? 1 : 0);
+            if (gameStatus === "fainted") {
+              setGameStatus("playing");
+              setAnnouncerMessage(
+                turn === 0
+                  ? `Go get 'em, ${playerPokemon[swapIdx].name}!`
+                  : `Opponent sent out ${opponentPokemon[swapIdx].name}!`
+              );
+              setAnimation(0, "sendOut");
+              swapPokemon(0, swapIdx);
+              await wait(1000);
+              setAnimation(0, "static");
+              await wait(1000);
+              setAnnouncerMessage("");
+              setTurn(0);
+            } else {
+              setAnnouncerMessage(`Good work, ${attacker.name}! Come on back!`);
+              await wait(1000);
+              setAnimation(0, "sendBack");
+              await wait(1000);
+              setAnnouncerMessage(
+                `Go get 'em, ${playerPokemon[swapIdx].name}!`
+              );
+              setAnimation(0, "sendOut");
+              swapPokemon(0, swapIdx);
+              await wait(1000);
+              setAnimation(0, "static");
+              await wait(1000);
+              setAnnouncerMessage("");
+              setTurn(turn === 0 ? 1 : 0);
+            }
             setInSequence(false);
           })();
           break;
@@ -153,8 +187,8 @@ export function useBattleSequence(sequence, player, opponent) {
   }, [sequence]);
 
   return {
-    turn,
     gameStatus,
+    turn,
     inSequence,
     playerPokemon,
     playerAnimation,

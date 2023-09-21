@@ -6,6 +6,7 @@ import MoveInfo from "./MoveInfo";
 import PokemonSelector from "./PokemonSelector/PokemonSelector";
 
 export default function GameMenu({
+  gameStatus,
   displayOptions,
   message,
   moves,
@@ -28,9 +29,9 @@ export default function GameMenu({
     setSelectedOption("");
   }
 
-  function switchPokemon(move) {
+  function switchPokemon(swapIdx) {
     setSelectedOption("");
-    setSequence({ turn, mode: { type: "pokemon", move } });
+    setSequence({ turn, mode: { type: "pokemon", swapIdx } });
     return;
   }
 
@@ -73,13 +74,14 @@ export default function GameMenu({
   } else
     return (
       <>
-        {selectedOption === "pokemon" && (
+        {(selectedOption === "pokemon" || gameStatus === "fainted") && (
           <div className={styles.modalContainer}>
             <div className={styles.shadowFade} />
             <PokemonSelector
               pokemon={pokemon}
               toMainMenu={toMainMenu}
               switchPokemon={switchPokemon}
+              fainted={gameStatus === "fainted"}
             />
           </div>
         )}

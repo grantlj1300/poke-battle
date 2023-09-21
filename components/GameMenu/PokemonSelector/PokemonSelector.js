@@ -7,6 +7,7 @@ export default function PokemonSelector({
   pokemon,
   toMainMenu,
   switchPokemon,
+  fainted,
 }) {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [hoveredOption, setHoveredOption] = useState("shift");
@@ -43,20 +44,22 @@ export default function PokemonSelector({
           <>
             <div className={styles.prompt}>Do what with this Pokemon?</div>
             <div className={styles.shiftOptions}>
-              <div
-                className={styles.shiftOption}
-                onClick={() => switchPokemon(selectedPokemon)}
-                onMouseOver={() => setHoveredOption("shift")}
-              >
+              {pokemon[selectedPokemon].health !== 0 && (
                 <div
-                  className={`${styles.arrow} ${
-                    hoveredOption === "shift" ? "" : styles.hidden
-                  }`}
+                  className={styles.shiftOption}
+                  onClick={() => switchPokemon(selectedPokemon)}
+                  onMouseOver={() => setHoveredOption("shift")}
                 >
-                  &#9658;
+                  <div
+                    className={`${styles.arrow} ${
+                      hoveredOption === "shift" ? "" : styles.hidden
+                    }`}
+                  >
+                    &#9658;
+                  </div>
+                  Shift
                 </div>
-                Shift
-              </div>
+              )}
               <div
                 className={styles.shiftOption}
                 onClick={() => setSelectedPokemon(null)}
@@ -76,9 +79,11 @@ export default function PokemonSelector({
         ) : (
           <>
             <div className={styles.prompt}>Choose a Pokemon.</div>
-            <div className={styles.cancel}>
-              <CancelButton onClick={toMainMenu} />
-            </div>
+            {!fainted && (
+              <div className={styles.cancel}>
+                <CancelButton onClick={toMainMenu} />
+              </div>
+            )}
           </>
         )}
       </div>

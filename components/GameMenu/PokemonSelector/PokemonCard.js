@@ -11,25 +11,23 @@ export default function PokemonCard({
   if (pokemon === null) {
     return <div className={`${styles.container} ${styles.empty}`} />;
   }
+  const { maxHP, health, sprites, name, level } = pokemon;
+  const currentHealth = health ?? maxHP;
   return (
     <div
       className={`${styles.container} ${main ? styles.main : ""} ${
         selected ? styles.selected : ""
-      }`}
+      } ${currentHealth === 0 ? styles.fainted : ""}`}
       style={{ flexDirection: main ? "column" : "row" }}
       onClick={() => setSelectedPokemon(index)}
     >
-      <img
-        className={styles.sprite}
-        src={pokemon.sprites.front}
-        alt={pokemon.name}
-      />
+      <img className={styles.sprite} src={sprites.front} alt={name} />
       <div className={styles.info}>
-        <div>{pokemon.name}</div>
-        <div>Lvl. {pokemon.level}</div>
+        <div>{name}</div>
+        <div>Lvl. {level}</div>
       </div>
       <div className={styles.health}>
-        <HealthBar user={true} current={10} max={10} />
+        <HealthBar user={true} current={currentHealth} max={maxHP} />
       </div>
     </div>
   );
