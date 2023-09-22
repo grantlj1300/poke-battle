@@ -9,12 +9,12 @@ export default function GameMenu({
   gameStatus,
   displayOptions,
   message,
-  moves,
   turn,
   setSequence,
   onGameEnd,
   pokemon,
 }) {
+  const moves = pokemon[0].moves;
   const [selectedOption, setSelectedOption] = useState("");
   const [previewedOption, setPreviewedOption] = useState(moves[0]);
   const mainMenuOptions = [

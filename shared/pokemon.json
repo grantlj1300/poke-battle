@@ -7,7 +7,9 @@
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif"
     },
-    "maxHP": 41,
+    "health": {
+      "max": 41
+    },
     "attack": 54,
     "defense": 46,
     "moves": [
@@ -23,7 +25,9 @@
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif"
     },
-    "maxHP": 43,
+    "health": {
+      "max": 43
+    },
     "attack": 48,
     "defense": 66,
     "moves": [

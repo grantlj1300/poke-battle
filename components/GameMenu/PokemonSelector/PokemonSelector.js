@@ -44,7 +44,7 @@ export default function PokemonSelector({
           <>
             <div className={styles.prompt}>Do what with this Pokemon?</div>
             <div className={styles.shiftOptions}>
-              {pokemon[selectedPokemon].health !== 0 && (
+              {pokemon[selectedPokemon].health.current !== 0 && (
                 <div
                   className={styles.shiftOption}
                   onClick={() => switchPokemon(selectedPokemon)}

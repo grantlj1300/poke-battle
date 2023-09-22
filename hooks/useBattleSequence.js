@@ -5,11 +5,24 @@ export function useBattleSequence(sequence, player, opponent) {
   const [turn, setTurn] = useState(0);
   const [gameStatus, setGameStatus] = useState("playing");
   const [inSequence, setInSequence] = useState(false);
-  const [playerPokemon, setPlayerPokemon] = useState(player);
+  const [playerPokemon, setPlayerPokemon] = useState(initializePokemon(player));
   const [playerAnimation, setPlayerAnimation] = useState("static");
-  const [opponentPokemon, setOpponentPokemon] = useState(opponent);
+  const [opponentPokemon, setOpponentPokemon] = useState(
+    initializePokemon(opponent)
+  );
   const [opponentAnimation, setOpponentAnimation] = useState("static");
   const [announcerMessage, setAnnouncerMessage] = useState("");
+
+  function initializePokemon(pokemon) {
+    return pokemon.map((poke) => ({
+      ...poke,
+      moves: poke.moves.map((move) => ({
+        ...move,
+        pp: { ...move.pp, current: move.pp.max },
+      })),
+      health: { ...poke.health, current: poke.health.max },
+    }));
+  }
 
   function setAnimation(target, animation) {
     turn === target
@@ -22,21 +35,17 @@ export function useBattleSequence(sequence, player, opponent) {
       prevHealth - damage > 0 ? prevHealth - damage : 0;
     let newHealth;
     if (target === turn) {
-      newHealth = updateHealth(
-        playerPokemon[0].health ?? playerPokemon[0].maxHP
-      );
+      newHealth = updateHealth(playerPokemon[0].health.current);
       setPlayerPokemon((prevPokemon) => {
         const updatedPokemon = [...prevPokemon];
-        updatedPokemon[0].health = newHealth;
+        updatedPokemon[0].health.current = newHealth;
         return updatedPokemon;
       });
     } else {
-      newHealth = updateHealth(
-        opponentPokemon[0].health ?? opponentPokemon[0].maxHP
-      );
+      newHealth = updateHealth(opponentPokemon[0].health.current);
       setOpponentPokemon((prevPokemon) => {
         const updatedPokemon = [...prevPokemon];
-        updatedPokemon[0].health = newHealth;
+        updatedPokemon[0].health.current = newHealth;
         return updatedPokemon;
       });
     }
@@ -51,9 +60,7 @@ export function useBattleSequence(sequence, player, opponent) {
               ...prevMove,
               pp: {
                 ...prevMove.pp,
-                current: prevMove.pp.current
-                  ? prevMove.pp.current - 1
-                  : prevMove.pp.max - 1,
+                current: prevMove.pp.current - 1,
               },
             }
           : prevMove
@@ -96,7 +103,6 @@ export function useBattleSequence(sequence, player, opponent) {
 
   useEffect(() => {
     const { mode, turn } = sequence;
-    // Possible race condition, AI moves twice, shouldnt have to check for inSequence
     if (mode) {
       const attacker = turn === 0 ? playerPokemon[0] : opponentPokemon[0];
       const receiver = turn === 0 ? opponentPokemon[0] : playerPokemon[0];
@@ -130,6 +136,24 @@ export function useBattleSequence(sequence, player, opponent) {
                 `${(turn === 0 ? "Foe " : "") + receiver.name} fainted!`
               );
               await wait(2000);
+              const allFainted =
+                turn === 0
+                  ? opponentPokemon.every((poke) => poke.health.current === 0)
+                  : playerPokemon.every((poke) => poke.health.current === 0);
+              if (allFainted) {
+                if (turn === 0) {
+                  setAnnouncerMessage("You defeated your opponent!");
+                  await wait(2000);
+                  setGameStatus("win");
+                } else {
+                  setAnnouncerMessage("You are out of usable Pokemon!");
+                  await wait(2000);
+                  setAnnouncerMessage("You whited out!");
+                  await wait(2000);
+                  setGameStatus("lose");
+                }
+                return;
+              }
               setGameStatus("fainted");
               setTurn(turn === 0 ? 1 : 0);
               setInSequence(false);

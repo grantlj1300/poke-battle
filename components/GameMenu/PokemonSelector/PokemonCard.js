@@ -11,13 +11,13 @@ export default function PokemonCard({
   if (pokemon === null) {
     return <div className={`${styles.container} ${styles.empty}`} />;
   }
-  const { maxHP, health, sprites, name, level } = pokemon;
-  const currentHealth = health ?? maxHP;
+  const { health, sprites, name, level } = pokemon;
+
   return (
     <div
       className={`${styles.container} ${main ? styles.main : ""} ${
         selected ? styles.selected : ""
-      } ${currentHealth === 0 ? styles.fainted : ""}`}
+      } ${health.current === 0 ? styles.fainted : ""}`}
       style={{ flexDirection: main ? "column" : "row" }}
       onClick={() => setSelectedPokemon(index)}
     >
@@ -27,7 +27,7 @@ export default function PokemonCard({
         <div>Lvl. {level}</div>
       </div>
       <div className={styles.health}>
-        <HealthBar user={true} current={currentHealth} max={maxHP} />
+        <HealthBar user={true} current={health.current} max={health.max} />
       </div>
     </div>
   );

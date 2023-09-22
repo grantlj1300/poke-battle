@@ -29,34 +29,28 @@ export default function Game({ onGameEnd }) {
   } = useBattleSequence(sequence, playerPokemonBase, opponentPokemonBase);
 
   useEffect(() => {
+    if (gameStatus === "win" || gameStatus === "lose") {
+      onGameEnd();
+    }
     if (turn === 1 && !inSequence) {
       setSequence({
         turn,
         mode: AIOpponentMove(turn, opponentPokemon, gameStatus),
       });
     }
-  }, [turn, inSequence]);
+  }, [turn, inSequence, gameStatus]);
 
   return (
     <div className={styles.container}>
       <div className={styles.battleContainer}>
-        <Opponent
-          pokemon={opponentPokemon[0]}
-          animation={opponentAnimation}
-          health={opponentPokemon[0].health ?? opponentPokemon[0].maxHP}
-        />
-        <User
-          pokemon={playerPokemon[0]}
-          animation={playerAnimation}
-          health={playerPokemon[0].health ?? playerPokemon[0].maxHP}
-        />
+        <Opponent pokemon={opponentPokemon[0]} animation={opponentAnimation} />
+        <User pokemon={playerPokemon[0]} animation={playerAnimation} />
       </div>
       <GameMenu
         turn={turn}
         setSequence={setSequence}
         gameStatus={gameStatus}
         displayOptions={turn === 0 && !inSequence && gameStatus === "playing"}
-        moves={playerPokemon[0].moves}
         message={announcerMessage || `What will ${playerPokemon[0].name} do?`}
         pokemon={playerPokemon}
         onGameEnd={onGameEnd}

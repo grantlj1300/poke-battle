@@ -1,7 +1,7 @@
 import styles from "@styles/Player/Player.module.css";
 import Status from "./Status";
 
-export default function User({ pokemon, animation, health }) {
+export default function User({ pokemon, animation }) {
   return (
     <div className={`${styles.container} ${styles[animation]}`}>
       <img
@@ -9,7 +9,7 @@ export default function User({ pokemon, animation, health }) {
         src={pokemon.sprites.back}
         alt={pokemon.name}
       />
-      <Status user pokemon={pokemon} health={health} />
+      <Status user pokemon={pokemon} />
     </div>
   );
 }
