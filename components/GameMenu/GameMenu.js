@@ -4,6 +4,7 @@ import TextAnnouncer from "./TextAnnouncer";
 import { useState } from "react";
 import MoveInfo from "./MoveInfo";
 import PokemonSelector from "./PokemonSelector/PokemonSelector";
+import Bag from "./Bag/Bag";
 
 export default function GameMenu({
   gameStatus,
@@ -12,10 +13,11 @@ export default function GameMenu({
   turn,
   setSequence,
   onGameEnd,
+  items,
   pokemon,
 }) {
   const moves = pokemon[0].moves;
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("bag");
   const [previewedOption, setPreviewedOption] = useState(moves[0]);
   const mainMenuOptions = [
     { name: "fight" },
@@ -52,8 +54,6 @@ export default function GameMenu({
         <MoveInfo move={previewedOption} />
       </div>
     );
-  } else if (selectedOption === "bag") {
-    return <></>;
   } else if (selectedOption === "run") {
     return (
       <div className={styles.container}>
@@ -74,6 +74,12 @@ export default function GameMenu({
   } else
     return (
       <>
+        {selectedOption === "bag" && (
+          <div className={styles.modalContainer}>
+            <div className={styles.shadowFade} />
+            <Bag items={items} toMainMenu={toMainMenu} />
+          </div>
+        )}
         {(selectedOption === "pokemon" ||
           (gameStatus === "fainted" && turn === 0)) && (
           <div className={styles.modalContainer}>

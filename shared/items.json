@@ -1,0 +1,8 @@
+{
+  "potion": {
+    "name": "Potion",
+    "description": "Restores the HP of a Pokemon by 20 points.",
+    "type": "heal",
+    "hp": 20
+  }
+}

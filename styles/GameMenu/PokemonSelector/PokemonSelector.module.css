@@ -9,7 +9,7 @@
   z-index: 1;
   animation: cutIn 0s ease-in 0.5s forwards;
   text-shadow: 1px 1px 3px rgb(131, 131, 131);
-  min-height: 475px;
+  min-height: 470px;
 }
 @keyframes cutIn {
   to {

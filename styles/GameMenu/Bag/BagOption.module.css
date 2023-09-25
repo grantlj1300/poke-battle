@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.hidden {
+  visibility: hidden;
+}
+.arrow {
+  font-size: 0.4em;
+  transform: scaleY(1.6);
+  cursor: default;
+}
+.option {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}

@@ -1,14 +1,26 @@
 import { attack, wait } from "@shared/helpers";
 import { useEffect, useState } from "react";
 
-export function useBattleSequence(sequence, player, opponent) {
+export function useBattleSequence(
+  sequence,
+  player,
+  playerItemsBase,
+  opponent,
+  opponentItemsBase
+) {
   const [turn, setTurn] = useState(0);
   const [gameStatus, setGameStatus] = useState("playing");
   const [inSequence, setInSequence] = useState(false);
   const [playerPokemon, setPlayerPokemon] = useState(initializePokemon(player));
+  const [playerItems, setPlayerItems] = useState(
+    initializeItems(playerItemsBase)
+  );
   const [playerAnimation, setPlayerAnimation] = useState("static");
   const [opponentPokemon, setOpponentPokemon] = useState(
     initializePokemon(opponent)
+  );
+  const [opponentItems, setOpponentItems] = useState(
+    initializeItems(opponentItemsBase)
   );
   const [opponentAnimation, setOpponentAnimation] = useState("static");
   const [announcerMessage, setAnnouncerMessage] = useState("");
@@ -21,6 +33,13 @@ export function useBattleSequence(sequence, player, opponent) {
         pp: { ...move.pp, current: move.pp.max },
       })),
       health: { ...poke.health, current: poke.health.max },
+    }));
+  }
+
+  function initializeItems(items) {
+    return items.map((item) => ({
+      ...item,
+      count: 1,
     }));
   }
 
@@ -215,8 +234,10 @@ export function useBattleSequence(sequence, player, opponent) {
     turn,
     inSequence,
     playerPokemon,
+    playerItems,
     playerAnimation,
     opponentPokemon,
+    opponentItems,
     opponentAnimation,
     announcerMessage,
   };
