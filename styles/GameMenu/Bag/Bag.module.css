@@ -64,6 +64,7 @@
   overflow-y: scroll;
 }
 .bag {
+  position: relative;
   width: 50%;
   background-color: rgb(249, 203, 118);
   padding: 30px 10px;
@@ -79,6 +80,35 @@
   height: 100%;
   background-color: rgb(253, 233, 197);
   padding: 5px;
+}
+.selectedOptions {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(1, 1fr);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  justify-content: space-evenly;
+  background: #f8f8f8;
+  border: solid 7px #6f677f;
+  border-radius: 15px;
+  min-width: 140px;
+  gap: 15px;
+  padding: 15px 10px;
+}
+.selectedOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.hidden {
+  visibility: hidden;
+}
+.arrow {
+  font-size: 0.4em;
+  transform: scaleY(1.5);
+  cursor: default;
 }
 
 @media screen and (min-width: 1024px) {

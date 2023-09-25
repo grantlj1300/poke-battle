@@ -3,6 +3,7 @@
     "name": "Potion",
     "description": "Restores the HP of a Pokemon by 20 points.",
     "type": "heal",
-    "hp": 20
+    "hp": 20,
+    "img": "https://archives.bulbagarden.net/media/upload/e/ed/Bag_Potion_Sprite.png"
   }
 }

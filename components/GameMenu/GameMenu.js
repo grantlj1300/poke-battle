@@ -17,7 +17,7 @@ export default function GameMenu({
   pokemon,
 }) {
   const moves = pokemon[0].moves;
-  const [selectedOption, setSelectedOption] = useState("bag");
+  const [selectedOption, setSelectedOption] = useState("");
   const [previewedOption, setPreviewedOption] = useState(moves[0]);
   const mainMenuOptions = [
     { name: "fight" },

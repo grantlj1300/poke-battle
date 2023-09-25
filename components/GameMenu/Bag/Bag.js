@@ -4,6 +4,9 @@ import { useState } from "react";
 
 export default function Bag({ items, toMainMenu }) {
   const [hoveredOption, setHoveredOption] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [hoveredSelectedOption, setHoveredSelectedOption] = useState("use");
+
   return (
     <div className={styles.container}>
       <div className={styles.preview}>
@@ -11,13 +14,16 @@ export default function Bag({ items, toMainMenu }) {
           Items
           <div className={styles.line} />
         </div>
-        <img
-          src="https://archives.bulbagarden.net/media/upload/e/ed/Bag_Potion_Sprite.png"
-          className={styles.image}
-        />
-        <div className={styles.description}>
-          Restores the HP of a Pokemon by 20 points.
-        </div>
+        {hoveredOption !== items.length && (
+          <>
+            <img src={items[hoveredOption].img} className={styles.image} />
+            <div className={styles.description}>
+              {selectedOption !== null
+                ? items[selectedOption].name + " is selected"
+                : items[hoveredOption].description}
+            </div>
+          </>
+        )}
       </div>
       <div className={styles.bag}>
         <div className={styles.bagOptions}>
@@ -28,19 +34,55 @@ export default function Bag({ items, toMainMenu }) {
               name={item.name}
               count={item.count}
               hoveredOption={hoveredOption}
-              setHoveredOption={setHoveredOption}
+              setHoveredOption={
+                selectedOption === null ? setHoveredOption : () => {}
+              }
+              onClick={() => setSelectedOption(idx)}
             />
           ))}
-
           <BagOption
             idx={items.length}
             key={items.length}
             name={"Close Bag"}
             hoveredOption={hoveredOption}
-            setHoveredOption={setHoveredOption}
+            setHoveredOption={
+              selectedOption === null ? setHoveredOption : () => {}
+            }
             onClick={toMainMenu}
           />
         </div>
+        {selectedOption !== null && (
+          <div className={styles.selectedOptions}>
+            <div
+              className={styles.selectedOption}
+              onClick={() => {}}
+              onMouseOver={() => setHoveredSelectedOption("use")}
+            >
+              <div
+                className={`${styles.arrow} ${
+                  hoveredSelectedOption === "use" ? "" : styles.hidden
+                }`}
+              >
+                &#9658;
+              </div>
+              Use
+            </div>
+            <div
+              className={styles.selectedOption}
+              onClick={() => setSelectedOption(null)}
+              onMouseOver={() => setHoveredSelectedOption("cancel")}
+            >
+              <div
+                className={`${styles.arrow} ${
+                  hoveredSelectedOption === "cancel" ? "" : styles.hidden
+                }`}
+              >
+                &#9658;
+              </div>
+              Cancel
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
