@@ -1,13 +1,28 @@
 import styles from "@styles/GameMenu/Bag/Bag.module.css";
 import BagOption from "./BagOption";
 import { useState } from "react";
+import PokemonSelector from "../PokemonSelector/PokemonSelector";
 
-export default function Bag({ items, toMainMenu }) {
+export default function Bag({ items, toMainMenu, pokemon, useItem }) {
   const [hoveredOption, setHoveredOption] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [hoveredSelectedOption, setHoveredSelectedOption] = useState("use");
+  const [displayPokemon, setDisplayPokemon] = useState(false);
 
-  return (
+  return displayPokemon ? (
+    <div className="modalContainer">
+      <div className="shadowFade" />
+      <PokemonSelector
+        pokemon={pokemon}
+        toMainMenu={() => setDisplayPokemon(false)}
+        selectOption={{
+          label: "Use",
+          use: useItem,
+        }}
+        fainted={false}
+      />
+    </div>
+  ) : (
     <div className={styles.container}>
       <div className={styles.preview}>
         <div className={styles.bagCategory}>
@@ -55,7 +70,7 @@ export default function Bag({ items, toMainMenu }) {
           <div className={styles.selectedOptions}>
             <div
               className={styles.selectedOption}
-              onClick={() => {}}
+              onClick={() => setDisplayPokemon(true)}
               onMouseOver={() => setHoveredSelectedOption("use")}
             >
               <div

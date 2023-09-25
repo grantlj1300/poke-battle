@@ -2,7 +2,7 @@ import HealthBar from "@components/HealthBar";
 import styles from "@styles/Player/Status.module.css";
 
 export default function Status({ user = false, pokemon }) {
-  const { health, name, level } = pokemon;
+  const { stats, name, level } = pokemon;
 
   return (
     <div className={`${styles.container} ${user ? styles.user : ""}`}>
@@ -11,7 +11,7 @@ export default function Status({ user = false, pokemon }) {
         <div>Lv. {level}</div>
       </div>
       <div className={styles.health}>
-        <HealthBar user={user} current={health.current} max={health.max} />
+        <HealthBar user={user} current={stats.hp.current} max={stats.hp.max} />
       </div>
     </div>
   );

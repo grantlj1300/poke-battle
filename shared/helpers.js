@@ -36,8 +36,9 @@ export function attack({ attacker, receiver, move }) {
   const CRITICAL_HIT_PROB = 0.0625;
   const critHitMultiplier = Math.random() <= CRITICAL_HIT_PROB ? 2 : 1;
   const randomMultiplier = Math.floor(217 + Math.floor(Math.random() * 39));
-  const { level, attack } = attacker;
-  const { defense } = receiver;
+  const { level } = attacker;
+  const { attack } = attacker.stats;
+  const { defense } = receiver.stats;
   const { power } = move;
   const sameTypeAttackBonus = move.type === attacker.type ? 1.5 : 1;
   const typeMultiplier = typeEffectiveness[move.type][receiver.type];

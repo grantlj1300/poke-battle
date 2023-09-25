@@ -37,6 +37,12 @@ export default function GameMenu({
     return;
   }
 
+  function useItem(pokeIdx) {
+    // setSelectedOption("");
+    // setSequence({ turn, mode: { type: "bag", pokeIdx } });
+    return;
+  }
+
   if (selectedOption === "fight") {
     return (
       <div className={styles.container}>
@@ -75,19 +81,24 @@ export default function GameMenu({
     return (
       <>
         {selectedOption === "bag" && (
-          <div className={styles.modalContainer}>
-            <div className={styles.shadowFade} />
-            <Bag items={items} toMainMenu={toMainMenu} />
+          <div className="modalContainer">
+            <div className="shadowFade" />
+            <Bag
+              items={items}
+              toMainMenu={toMainMenu}
+              pokemon={pokemon}
+              useItem={useItem}
+            />
           </div>
         )}
         {(selectedOption === "pokemon" ||
           (gameStatus === "fainted" && turn === 0)) && (
-          <div className={styles.modalContainer}>
-            <div className={styles.shadowFade} />
+          <div className="modalContainer">
+            <div className="shadowFade" />
             <PokemonSelector
               pokemon={pokemon}
               toMainMenu={toMainMenu}
-              switchPokemon={switchPokemon}
+              selectOption={{ label: "Shift", use: switchPokemon }}
               fainted={gameStatus === "fainted"}
             />
           </div>

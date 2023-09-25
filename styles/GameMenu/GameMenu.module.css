@@ -3,32 +3,6 @@
   height: 120px;
   font-size: 1.3em;
 }
-.modalContainer {
-  position: absolute;
-  width: inherit;
-  height: inherit;
-}
-.shadowFade {
-  position: absolute;
-  background-color: black;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  opacity: 0;
-  animation: shadowFade 1s;
-}
-@keyframes shadowFade {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 
 @media screen and (min-width: 480px) {
   .container {
@@ -39,26 +13,14 @@
   .container {
     height: 30%;
   }
-  .modalContainer {
-    width: 710px;
-    height: 470px;
-  }
 }
 @media screen and (min-width: 1024px) {
   .container {
     font-size: 2.5em;
   }
-  .modalContainer {
-    width: 890px;
-    height: 590px;
-  }
 }
 @media screen and (min-width: 1200px) {
   .container {
     font-size: 3em;
-  }
-  .modalContainer {
-    width: 1070px;
-    height: 710px;
   }
 }

@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function PokemonSelector({
   pokemon,
   toMainMenu,
-  switchPokemon,
+  selectOption,
   fainted,
 }) {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -44,10 +44,10 @@ export default function PokemonSelector({
           <>
             <div className={styles.prompt}>Do what with this Pokemon?</div>
             <div className={styles.shiftOptions}>
-              {pokemon[selectedPokemon].health.current !== 0 && (
+              {pokemon[selectedPokemon].stats.hp.current !== 0 && (
                 <div
                   className={styles.shiftOption}
-                  onClick={() => switchPokemon(selectedPokemon)}
+                  onClick={() => selectOption.use(selectedPokemon)}
                   onMouseOver={() => setHoveredOption("shift")}
                 >
                   <div
@@ -57,7 +57,7 @@ export default function PokemonSelector({
                   >
                     &#9658;
                   </div>
-                  Shift
+                  {selectOption.label}
                 </div>
               )}
               <div

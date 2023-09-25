@@ -26,14 +26,40 @@ export function useBattleSequence(
   const [announcerMessage, setAnnouncerMessage] = useState("");
 
   function initializePokemon(pokemon) {
-    return pokemon.map((poke) => ({
-      ...poke,
-      moves: poke.moves.map((move) => ({
-        ...move,
-        pp: { ...move.pp, current: move.pp.max },
-      })),
-      health: { ...poke.health, current: poke.health.max },
-    }));
+    return pokemon.map((poke) => {
+      const health =
+        Math.floor(
+          0.01 *
+            (2 * poke.baseStats.hp +
+              Math.floor(Math.random() * 32) * poke.level)
+        ) +
+        poke.level +
+        10;
+      const attack =
+        Math.floor(
+          0.01 *
+            (2 * poke.baseStats.attack + Math.floor(Math.random() * 32)) *
+            poke.level
+        ) + 5;
+      const defense =
+        Math.floor(
+          0.01 *
+            (2 * poke.baseStats.defense + Math.floor(Math.random() * 32)) *
+            poke.level
+        ) + 5;
+      return {
+        ...poke,
+        moves: poke.moves.map((move) => ({
+          ...move,
+          pp: { ...move.pp, current: move.pp.max },
+        })),
+        stats: {
+          hp: { current: health, max: health },
+          attack,
+          defense,
+        },
+      };
+    });
   }
 
   function initializeItems(items) {
@@ -54,17 +80,17 @@ export function useBattleSequence(
       prevHealth - damage > 0 ? prevHealth - damage : 0;
     let newHealth;
     if (target === turn) {
-      newHealth = updateHealth(playerPokemon[0].health.current);
+      newHealth = updateHealth(playerPokemon[0].stats.hp.current);
       setPlayerPokemon((prevPokemon) => {
         const updatedPokemon = [...prevPokemon];
-        updatedPokemon[0].health.current = newHealth;
+        updatedPokemon[0].stats.hp.current = newHealth;
         return updatedPokemon;
       });
     } else {
-      newHealth = updateHealth(opponentPokemon[0].health.current);
+      newHealth = updateHealth(opponentPokemon[0].stats.hp.current);
       setOpponentPokemon((prevPokemon) => {
         const updatedPokemon = [...prevPokemon];
-        updatedPokemon[0].health.current = newHealth;
+        updatedPokemon[0].stats.hp.current = newHealth;
         return updatedPokemon;
       });
     }
@@ -157,8 +183,8 @@ export function useBattleSequence(
               await wait(2000);
               const allFainted =
                 turn === 0
-                  ? opponentPokemon.every((poke) => poke.health.current === 0)
-                  : playerPokemon.every((poke) => poke.health.current === 0);
+                  ? opponentPokemon.every((poke) => poke.stats.hp.current === 0)
+                  : playerPokemon.every((poke) => poke.stats.hp.current === 0);
               if (allFainted) {
                 if (turn === 0) {
                   setAnnouncerMessage("You defeated your opponent!");
@@ -220,6 +246,22 @@ export function useBattleSequence(
               setAnnouncerMessage("");
               setTurn(turn === 0 ? 1 : 0);
             }
+            setInSequence(false);
+          })();
+          break;
+        case "bag":
+          const { pokeIdx } = mode;
+          (async () => {
+            setInSequence(true);
+            setPlayerPokemon((prev) => {
+              const pokemon = [...prev];
+              const { current, max } = pokemon[pokeIdx].health;
+              pokemon[pokeIdx].health.current =
+                current + 20 > max ? max : current + 20;
+              return pokemon;
+            });
+            setTurn(1);
+            await wait(350);
             setInSequence(false);
           })();
           break;
