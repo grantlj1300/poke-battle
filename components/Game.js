@@ -2,23 +2,17 @@ import styles from "@styles/Game.module.css";
 import GameMenu from "./GameMenu/GameMenu";
 import Opponent from "./Player/Opponent";
 import User from "./Player/User";
-import pokemon from "@shared/pokemon.json";
-import items from "@shared/items.json";
 import { useBattleSequence } from "@hooks/useBattleSequence";
 import { useEffect, useState } from "react";
 import { AIOpponentMove } from "@shared/helpers";
 
-export default function Game({ onGameEnd }) {
-  const playerPokemonBase = [pokemon.charmander, pokemon.squirtle].map(
-    (pokemon) => ({ ...pokemon })
-  );
-  const playerItemsBase = [items.potion].map((item) => ({ ...item }));
-  const opponentPokemonBase = [pokemon.squirtle, pokemon.charmander].map(
-    (pokemon) => ({
-      ...pokemon,
-    })
-  );
-  const opponentItemsBase = [items.potion].map((item) => ({ ...item }));
+export default function Game({ team, opponentTeam, onGameEnd }) {
+  const playerPokemonBase = team.map((pokemon) => ({ ...pokemon }));
+  const playerItemsBase = [];
+  const opponentPokemonBase = opponentTeam.map((pokemon) => ({
+    ...pokemon,
+  }));
+  const opponentItemsBase = [];
   const [sequence, setSequence] = useState({});
   const {
     gameStatus,

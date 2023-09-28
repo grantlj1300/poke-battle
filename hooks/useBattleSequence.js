@@ -255,8 +255,8 @@ export function useBattleSequence(
             setInSequence(true);
             setPlayerPokemon((prev) => {
               const pokemon = [...prev];
-              const { current, max } = pokemon[pokeIdx].health;
-              pokemon[pokeIdx].health.current =
+              const { current, max } = pokemon[pokeIdx].stats.hp;
+              pokemon[pokeIdx].stats.hp.current =
                 current + 20 > max ? max : current + 20;
               return pokemon;
             });
