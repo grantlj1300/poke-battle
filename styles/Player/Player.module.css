@@ -4,33 +4,33 @@
   height: 50%;
   max-width: 550px;
 }
-.container img {
+.scale {
+  transform: scale(2);
+  transform-origin: bottom;
   position: absolute;
-  width: 120px;
-  z-index: -2;
 }
 .userSprite {
-  bottom: 15%;
-  left: 5%;
+  bottom: 10%;
+  left: 10%;
 }
 .enemySprite {
   bottom: 0%;
-  right: 5%;
+  right: 15%;
 }
-.static > img {
+.static {
   transform: translateX(0px);
   transform: translateY(0px);
   transition: 0.5s;
 }
-.fight > .userSprite {
+.userSprite .fight {
   transition: 0.1s;
   transform: translateX(10%) translateY(-10%);
 }
-.fight > .enemySprite {
+.enemySprite .fight {
   transition: 0.1s;
   transform: translateX(-10%) translateY(10%);
 }
-.damage > img {
+.damage {
   opacity: 1;
   animation: flash 0.3s 0.3s infinite;
 }
@@ -45,7 +45,7 @@
     opacity: 0;
   }
 }
-.sendBack > img {
+.sendBack {
   transform-origin: bottom;
   animation: shrink 0.5s ease-in-out forwards;
 }
@@ -55,7 +55,7 @@
     transform: scale(0);
   }
 }
-.sendOut > img {
+.sendOut {
   transform-origin: bottom;
   animation: grow 0.5s ease-in-out forwards;
 }
@@ -83,9 +83,6 @@
   .container {
     max-width: none;
   }
-  .container img {
-    width: 100px;
-  }
   .userSprite {
     bottom: 10%;
     left: 25%;
@@ -95,12 +92,6 @@
   }
 }
 @media screen and (min-width: 1024px) {
-  .container img {
-    width: 120px;
-  }
 }
 @media screen and (min-width: 1200px) {
-  .container img {
-    width: 140px;
-  }
 }

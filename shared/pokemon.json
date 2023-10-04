@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Bulbasaur",
     "type": ["grass", "poison"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/bulbasaur.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif"
@@ -14,15 +14,15 @@
       "defense": 49
     },
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Vine Whip", "type": "grass", "pp": { "max": 25 }, "power": 45 }
+      { "move": "tackle", "level": 1 },
+      { "move": "vineWhip", "level": 3 }
     ]
   },
   {
     "id": 2,
     "name": "Ivysaur",
     "type": ["grass", "poison"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/ivysaur.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif"
@@ -33,15 +33,15 @@
       "defense": 63
     },
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Vine Whip", "type": "grass", "pp": { "max": 25 }, "power": 45 }
+      { "move": "tackle", "level": 1 },
+      { "move": "vineWhip", "level": 1 }
     ]
   },
   {
     "id": 3,
     "name": "Venusaur",
     "type": ["grass", "poison"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/venusaur.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif"
@@ -52,15 +52,15 @@
       "defense": 83
     },
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Vine Whip", "type": "grass", "pp": { "max": 25 }, "power": 45 }
+      { "move": "tackle", "level": 1 },
+      { "move": "vineWhip", "level": 1 }
     ]
   },
   {
     "id": 4,
     "name": "Charmander",
     "type": "fire",
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmander.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif"
@@ -71,15 +71,15 @@
       "defense": 43
     },
     "moves": [
-      { "name": "Scratch", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Ember", "type": "fire", "pp": { "max": 25 }, "power": 40 }
+      { "move": "scratch", "level": 1 },
+      { "move": "ember", "level": 4 }
     ]
   },
   {
     "id": 5,
     "name": "Charmeleon",
     "type": "fire",
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charmeleon.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/charmeleon.gif"
@@ -90,15 +90,15 @@
       "defense": 58
     },
     "moves": [
-      { "name": "Scratch", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Ember", "type": "fire", "pp": { "max": 25 }, "power": 40 }
+      { "move": "scratch", "level": 1 },
+      { "move": "ember", "level": 1 }
     ]
   },
   {
     "id": 6,
     "name": "Charizard",
     "type": ["fire", "flying"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif"
@@ -109,15 +109,15 @@
       "defense": 78
     },
     "moves": [
-      { "name": "Scratch", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Ember", "type": "fire", "pp": { "max": 25 }, "power": 40 }
+      { "move": "scratch", "level": 1 },
+      { "move": "ember", "level": 1 }
     ]
   },
   {
     "id": 7,
     "name": "Squirtle",
     "type": "water",
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/squirtle.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif"
@@ -128,15 +128,15 @@
       "defense": 65
     },
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Water Gun", "type": "water", "pp": { "max": 25 }, "power": 40 }
+      { "move": "tackle", "level": 1 },
+      { "move": "waterGun", "level": 3 }
     ]
   },
   {
     "id": 8,
     "name": "Wartortle",
     "type": "water",
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/wartortle.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif"
@@ -147,15 +147,15 @@
       "defense": 80
     },
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Water Gun", "type": "water", "pp": { "max": 25 }, "power": 40 }
+      { "move": "tackle", "level": 1 },
+      { "move": "waterGun", "level": 1 }
     ]
   },
   {
     "id": 9,
     "name": "Blastoise",
     "type": "water",
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/blastoise.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif"
@@ -166,15 +166,15 @@
       "defense": 100
     },
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Water Gun", "type": "water", "pp": { "max": 25 }, "power": 40 }
+      { "move": "tackle", "level": 1 },
+      { "move": "waterGun", "level": 1 }
     ]
   },
   {
     "id": 10,
     "name": "Caterpie",
     "type": "bug",
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/caterpie.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/caterpie.gif"
@@ -184,15 +184,13 @@
       "attack": 30,
       "defense": 35
     },
-    "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 }
-    ]
+    "moves": [{ "move": "tackle", "level": 1 }]
   },
   {
     "id": 11,
     "name": "Metapod",
     "type": "bug",
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/metapod.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/metapod.gif"
@@ -202,15 +200,13 @@
       "attack": 20,
       "defense": 55
     },
-    "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 }
-    ]
+    "moves": [{ "move": "tackle", "level": 1 }]
   },
   {
     "id": 12,
     "name": "Butterfree",
     "type": ["bug", "flying"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/butterfree.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/butterfree.gif"
@@ -220,17 +216,13 @@
       "attack": 45,
       "defense": 50
     },
-    "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Bug Bite", "type": "bug", "pp": { "max": 20 }, "power": 60 },
-      { "name": "Gust", "type": "flying", "pp": { "max": 35 }, "power": 40 }
-    ]
+    "moves": [{ "move": "tackle", "level": 1 }]
   },
   {
     "id": 13,
     "name": "Weedle",
     "type": ["bug", "poison"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/weedle.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/weedle.gif"
@@ -240,20 +232,13 @@
       "attack": 35,
       "defense": 30
     },
-    "moves": [
-      {
-        "name": "Poison Sting",
-        "type": "poison",
-        "pp": { "max": 35 },
-        "power": 15
-      }
-    ]
+    "moves": [{ "move": "poisonSting", "level": 1 }]
   },
   {
     "id": 14,
     "name": "Kakuna",
     "type": ["bug", "poison"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/kakuna.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/kakuna.gif"
@@ -263,20 +248,13 @@
       "attack": 25,
       "defense": 50
     },
-    "moves": [
-      {
-        "name": "Poison Sting",
-        "type": "poison",
-        "pp": { "max": 35 },
-        "power": 15
-      }
-    ]
+    "moves": [{ "move": "poisonSting", "level": 1 }]
   },
   {
     "id": 15,
     "name": "Beedrill",
     "type": ["bug", "poison"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/beedrill.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/beedrill.gif"
@@ -286,21 +264,13 @@
       "attack": 90,
       "defense": 40
     },
-    "moves": [
-      {
-        "name": "Poison Sting",
-        "type": "poison",
-        "pp": { "max": 35 },
-        "power": 15
-      },
-      { "name": "Bug Bite", "type": "bug", "pp": { "max": 20 }, "power": 60 }
-    ]
+    "moves": [{ "move": "poisonSting", "level": 1 }]
   },
   {
     "id": 16,
     "name": "Pidgey",
     "type": ["normal", "flying"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pidgey.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/pidgey.gif"
@@ -310,15 +280,13 @@
       "attack": 45,
       "defense": 40
     },
-    "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 }
-    ]
+    "moves": [{ "move": "tackle", "level": 1 }]
   },
   {
     "id": 17,
     "name": "Pidgeotto",
     "type": ["normal", "flying"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pidgeotto.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/pidgeotto.gif"
@@ -328,16 +296,13 @@
       "attack": 60,
       "defense": 55
     },
-    "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Gust", "type": "flying", "pp": { "max": 35 }, "power": 40 }
-    ]
+    "moves": [{ "move": "tackle", "level": 1 }]
   },
   {
     "id": 18,
     "name": "Pidgeot",
     "type": ["normal", "flying"],
-    "level": 5,
+
     "sprites": {
       "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pidgeot.gif",
       "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/pidgeot.gif"
@@ -347,21 +312,172 @@
       "attack": 80,
       "defense": 75
     },
+    "moves": [{ "move": "tackle", "level": 1 }]
+  },
+  {
+    "id": 19,
+    "name": "Rattata",
+    "type": "normal",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/rattata.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/rattata.gif"
+    },
+    "baseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35
+    },
+    "moves": [{ "move": "tackle", "level": 1 }]
+  },
+  {
+    "id": 20,
+    "name": "Raticate",
+    "type": "normal",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/raticate.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/raticate.gif"
+    },
+    "baseStats": {
+      "hp": 55,
+      "attack": 81,
+      "defense": 60
+    },
+    "moves": [{ "move": "tackle", "level": 1 }]
+  },
+  {
+    "id": 21,
+    "name": "Spearow",
+    "type": ["normal", "flying"],
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/spearow.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/spearow.gif"
+    },
+    "baseStats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 30
+    },
+    "moves": [{ "move": "peck", "level": 1 }]
+  },
+  {
+    "id": 22,
+    "name": "Fearow",
+    "type": ["normal", "flying"],
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/fearow.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/fearow.gif"
+    },
+    "baseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 65
+    },
+    "moves": [{ "move": "peck", "level": 1 }]
+  },
+  {
+    "id": 23,
+    "name": "Ekans",
+    "type": "poison",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/ekans.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/ekans.gif"
+    },
+    "baseStats": {
+      "hp": 35,
+      "attack": 60,
+      "defense": 44
+    },
+    "moves": [{ "move": "poisonSting", "level": 4 }]
+  },
+  {
+    "id": 24,
+    "name": "Arbok",
+    "type": "poison",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/arbok.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/arbok.gif"
+    },
+    "baseStats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 69
+    },
+    "moves": [{ "move": "poisonSting", "level": 1 }]
+  },
+  {
+    "id": 25,
+    "name": "Pikachu",
+    "type": "electric",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/pikachu.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif"
+    },
+    "baseStats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40
+    },
+    "moves": [{ "move": "quickAttack", "level": 1 }]
+  },
+  {
+    "id": 26,
+    "name": "Raichu",
+    "type": "electric",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/raichu.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/raichu.gif"
+    },
+    "baseStats": {
+      "hp": 60,
+      "attack": 90,
+      "defense": 55
+    },
+    "moves": [{ "move": "quickAttack", "level": 1 }]
+  },
+  {
+    "id": 27,
+    "name": "Sandshrew",
+    "type": "ground",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/sandshrew.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/sandshrew.gif"
+    },
+    "baseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85
+    },
     "moves": [
-      { "name": "Tackle", "type": "normal", "pp": { "max": 35 }, "power": 40 },
-      { "name": "Gust", "type": "flying", "pp": { "max": 35 }, "power": 40 },
-      {
-        "name": "Quick Attack",
-        "type": "normal",
-        "pp": { "max": 30 },
-        "power": 40
-      },
-      {
-        "name": "Hurricane",
-        "type": "flying",
-        "pp": { "max": 10 },
-        "power": 110
-      }
+      { "move": "scratch", "level": 1 },
+      { "move": "poisonSting", "level": 3 }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Sandslash",
+    "type": "ground",
+
+    "sprites": {
+      "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/sandslash.gif",
+      "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/sandslash.gif"
+    },
+    "baseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 110
+    },
+    "moves": [
+      { "move": "scratch", "level": 1 },
+      { "move": "poisonSting", "level": 1 }
     ]
   }
 ]

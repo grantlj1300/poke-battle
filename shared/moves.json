@@ -1,0 +1,66 @@
+{
+  "scratch": {
+    "name": "Scratch",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": { "max": 35 }
+  },
+  "tackle": {
+    "name": "Tackle",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": { "max": 35 }
+  },
+  "vineWhip": {
+    "name": "Vine Whip",
+    "type": "grass",
+    "category": "physical",
+    "power": 45,
+    "accuracy": 100,
+    "pp": { "max": 25 }
+  },
+  "ember": {
+    "name": "Ember",
+    "type": "fire",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": { "max": 25 }
+  },
+  "waterGun": {
+    "name": "Water Gun",
+    "type": "water",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": { "max": 25 }
+  },
+  "poisonSting": {
+    "name": "Poison Sting",
+    "type": "poison",
+    "category": "physical",
+    "power": 15,
+    "accuracy": 100,
+    "pp": { "max": 35 }
+  },
+  "peck": {
+    "name": "Peck",
+    "type": "flying",
+    "category": "physical",
+    "power": 35,
+    "accuracy": 100,
+    "pp": { "max": 35 }
+  },
+  "quickAttack": {
+    "name": "Quick Attack",
+    "type": "normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": { "max": 30 }
+  }
+}

@@ -44,22 +44,23 @@ export default function PokemonSelector({
           <>
             <div className={styles.prompt}>Do what with this Pokemon?</div>
             <div className={styles.shiftOptions}>
-              {pokemon[selectedPokemon].stats.hp.current !== 0 && (
-                <div
-                  className={styles.shiftOption}
-                  onClick={() => selectOption.use(selectedPokemon)}
-                  onMouseOver={() => setHoveredOption("shift")}
-                >
+              {pokemon[selectedPokemon].stats.hp.current !== 0 &&
+                selectedPokemon !== 0 && (
                   <div
-                    className={`${styles.arrow} ${
-                      hoveredOption === "shift" ? "" : styles.hidden
-                    }`}
+                    className={styles.shiftOption}
+                    onClick={() => selectOption.use(selectedPokemon)}
+                    onMouseOver={() => setHoveredOption("shift")}
                   >
-                    &#9658;
+                    <div
+                      className={`${styles.arrow} ${
+                        hoveredOption === "shift" ? "" : styles.hidden
+                      }`}
+                    >
+                      &#9658;
+                    </div>
+                    {selectOption.label}
                   </div>
-                  {selectOption.label}
-                </div>
-              )}
+                )}
               <div
                 className={styles.shiftOption}
                 onClick={() => setSelectedPokemon(null)}

@@ -31,20 +31,26 @@ export function useBattleSequence(
         Math.floor(
           0.01 *
             (2 * poke.baseStats.hp +
-              Math.floor(Math.random() * 32) * poke.level)
+              Math.floor(Math.random() * 32) +
+              Math.floor(0.25 * poke.evStats.hp)) *
+            poke.level
         ) +
         poke.level +
         10;
       const attack =
         Math.floor(
           0.01 *
-            (2 * poke.baseStats.attack + Math.floor(Math.random() * 32)) *
+            (2 * poke.baseStats.attack +
+              Math.floor(Math.random() * 32) +
+              Math.floor(0.25 * poke.evStats.attack)) *
             poke.level
         ) + 5;
       const defense =
         Math.floor(
           0.01 *
-            (2 * poke.baseStats.defense + Math.floor(Math.random() * 32)) *
+            (2 * poke.baseStats.defense +
+              Math.floor(Math.random() * 32) +
+              Math.floor(0.25 * poke.evStats.defense)) *
             poke.level
         ) + 5;
       return {
